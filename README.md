@@ -1,2 +1,3 @@
 # GitHub-API
-Created with CodeSandbox
+
+JSprimer で作成した JS アプリを React で作成する。
