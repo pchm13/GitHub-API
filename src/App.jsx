@@ -3,6 +3,7 @@ import { CreateView } from "./components/CreateView";
 
 export const App = () => {
   const [inputText, setInputText] = useState("js-primer-example");
+  const [userId, setUserId] = useState("");
 
   const onChangeInputText = (event) => {
     setInputText(event.target.value);
@@ -20,6 +21,10 @@ export const App = () => {
     });
   };
 
+  const onClickButton = (inputText) => {
+    setUserId(inputText);
+  };
+
   return (
     <>
       <h2>GitHub User Info</h2>
@@ -31,10 +36,10 @@ export const App = () => {
           value={inputText}
           onChange={onChangeInputText}
         />
-        <button>Get user info</button>
+        <button onClick={() => onClickButton(inputText)}>Get user info</button>
       </div>
 
-      <CreateView userInfo={fetchUserInfo(inputText)} />
+      <CreateView userInfo={() => fetchUserInfo(userId)} />
     </>
   );
 };
